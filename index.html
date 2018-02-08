@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+		<title>Карта Артека</title>
+    </head>
+    <body>
+        <script>
+            var ws = new WebSocket("ws://127.0.0.1:5678/")
+            ws.onmessage = function (event) {
+                var content = document.createTextNode(event.data);
+				//var pings = JSON.parse(content);
+				console.log(content);
+            };
+        </script>
+    </body>
+</html>
