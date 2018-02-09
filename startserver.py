@@ -12,8 +12,7 @@ nodes = {
 	"Морской"       : ["172.20.255.20",	3510, 1230],
 	"ЦДО"           : ["172.20.255.30",	1700, 1300],
 	"Вожатый"       : ["172.20.255.40",	2960, 260],
-	"Залупа"	: ["172.20.20.20",      400,  400],
-	"Залупа2"	: ["172.20.20.21",      800,  800]
+        "Миша"          : ["172.16.9.11",       400,  400]
 	}
 	
 async def sendpings(websocket, path):
@@ -26,8 +25,8 @@ async def sendpings(websocket, path):
             pings[key].append(nodes[key][1])
             pings[key].append(nodes[key][2])
             
-        await websocket.send(json.dumps(pings,ensure_ascii=False,separators=(',',':')))
-        await asyncio.sleep(10)
+        await websocket.send(json.dumps(pings,ensure_ascii=False))
+        await asyncio.sleep(5)
 
 start_server = websockets.serve(sendpings, '127.0.0.1', 5678)
 
