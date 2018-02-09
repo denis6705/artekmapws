@@ -21,10 +21,10 @@
             ws.onmessage = function (event) {
 				var pings = JSON.parse(event.data);
 				for (key in pings) {
-					let ip = pings[key][0];
+					let ping = pings[key][0];
 					let x = pings[key][1];
 					let y = pings[key][2];
-					if (ip === -1) {
+					if (ping === -1) {
 						ctx.drawImage(red,x, y, 30, 30);
 					} else {
 						ctx.drawImage(green, x, y, 30, 30);
@@ -32,6 +32,7 @@
 					ctx.fillStyle = "blue";
 					ctx.font = "italic 30pt Arial";
 					ctx.fillText(key, x-40, y-10);
+
 				}
             };
         </script>
