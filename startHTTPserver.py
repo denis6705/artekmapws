@@ -1,4 +1,5 @@
 from bottle import *
+from socket import *
 
 @get("<filepath:re:.*\.(jpg|png|gif|ico|svg)>")
 def img(filepath):
@@ -6,5 +7,7 @@ def img(filepath):
 
 @route('/')
 def index():
-    return template('index.tpl')
-run(host='localhost', port=80)
+    ip = gethostbyname_ex(gethostname())[2][0]
+    
+    return template('index.tpl', ip=ip)
+run(host='0.0.0.0', port=80)

@@ -7,7 +7,8 @@
     <body>
 		<canvas id="canvas" width="4096" height="2160"> </canvas>
         <script>
-            var ws = new WebSocket("ws://127.0.0.1:5678/")
+            //var ws = new WebSocket("ws://127.0.0.1:5678/")
+			var ws = new WebSocket("ws://{{ip}}:5678/")
 			ctx = document.getElementById("canvas").getContext("2d");
 			map = new Image();
 			map.src = "map.png";
